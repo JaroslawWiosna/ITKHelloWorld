@@ -26,8 +26,12 @@
 // Software Guide : BeginCodeSnippet
 #include "itkImage.h"
 #include <iostream>
+#include <gtest/gtest.h>
 
-int main()
+class HelloTest : public ::testing::Test
+{};
+
+TEST_F(HelloTest, HelloWorld)
 {
   typedef itk::Image< unsigned short, 3 > ImageType;
 
@@ -36,8 +40,15 @@ int main()
   std::cout << "ITK Hello World !" << std::endl;
   std::cout << __cplusplus << std::endl;
 
-  return EXIT_SUCCESS;
+//  return EXIT_SUCCESS;
 }
+
+int main(int argc, char* argv[])
+{
+  ::testing::InitGoogleTest(&argc, argv);
+  return RUN_ALL_TESTS();
+}
+
 // Software Guide : EndCodeSnippet
 
 //  Software Guide : BeginLatex

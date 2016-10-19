@@ -12,6 +12,9 @@ project(HelloWorld)
 find_package(ITK REQUIRED)
 include(${ITK_USE_FILE})
 
+find_package(GTest REQUIRED)
+include(${GTEST_INCLUDE_DIRS})
+
 add_executable(HelloWorld HelloWorld.cxx )
 
-target_link_libraries(HelloWorld ${ITK_LIBRARIES})
+target_link_libraries(HelloWorld ${ITK_LIBRARIES} ${GTEST_LIBRARIES} pthread)
